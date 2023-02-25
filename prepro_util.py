@@ -108,3 +108,27 @@ def preprocess_data(dataset , round_to_which_digit , fill_type , target_column):
         pass
     return temp_df
 
+
+def PCA_transform(dataset , variance , target):
+    
+    ### split predictor and predicted
+    x , y = x_y_split(dataset , target)
+
+    ### scale
+    sc = preprocessing.StandardScaler()
+    scaled_x = pd.DataFrame(sc.fit_transform(x) , columns = x.columns)
+
+    ### PCA
+    pca_model = PCA(n_components = variance , svd_solver = 'full')
+    transformed = pca_model.fit_transform(scaled_x)
+    
+    ### make dataframe with new components
+    columns = []
+    for i in range(1 , transformed.shape[1] + 1):
+        columns.append(f"component {i}")
+    transformed_df = pd.DataFrame(transformed , columns = columns)
+
+    ### combine transformed x with y
+    transformed_df[target] = y
+    
+    return transformed_df
