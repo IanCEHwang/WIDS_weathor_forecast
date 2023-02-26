@@ -112,7 +112,10 @@ def preprocess_data(dataset , round_to_which_digit , fill_type , target_column):
 def PCA_transform(dataset , variance , target):
     
     ### split predictor and predicted
-    x , y = x_y_split(dataset , target)
+    try:
+        x , y = x_y_split(dataset , target)
+    except:
+        x = dataset
 
     ### scale
     sc = preprocessing.StandardScaler()
@@ -128,7 +131,10 @@ def PCA_transform(dataset , variance , target):
         columns.append(f"component {i}")
     transformed_df = pd.DataFrame(transformed , columns = columns)
 
-    ### combine transformed x with y
-    transformed_df[target] = y
+    try:
+        ### combine transformed x with y
+        transformed_df[target] = y
+    except:
+        pass    
     
     return transformed_df
