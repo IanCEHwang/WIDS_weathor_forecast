@@ -48,14 +48,19 @@ def cat_boost(depth , rate , x_train , y_train):
     return model
 
 
+try:
+     os.mkdir('models')
+except:
+     pass
+
 ### containers
-model_list = []
-spec_list = []
+#model_list = []
+#spec_list = []
 testing_list = []
 
 ### loops
-for depth in range(3 , 11): ### max depth adjustment
-    for rate in range(5 , 9): ### learning rate adjustment
+for depth in range(6 , 11): ### max depth adjustment
+    for rate in range(7 , 8): ### learning rate adjustment
         ### model making
         temp_model = cat_boost(depth, rate / 100 ,\
                                x_train, y_train)
@@ -66,18 +71,19 @@ for depth in range(3 , 11): ### max depth adjustment
         
         ### store result
         test_string = f"max_d_{depth}_learn_r_{rate}"
-        model_list.append(temp_model)
-        spec_list.append({"spec" : test_string})
-        testing_list.append([f"{test_string}" , mse])
         
-try:
-    os.mkdir('models')
-except:
-    pass
+        ### save model
+        temp_model.save_model(f"./models/CATboost_{test_string}.json")
+        #model_list.append(temp_model)
+        #spec_list.append({"spec" : test_string})
+        
+        testing_list.append([f"{test_string}" , mse])
+        del temp_model
+        
 
 ### save model
-for model_index in range(len(model_list)):
-    model_list[model_index].save_model(f"./models/CATboost_{spec_list[model_index]['spec']}.json")
+# for model_index in range(len(model_list)):
+#     model_list[model_index].save_model(f"./models/CATboost_{spec_list[model_index]['spec']}.json")
     
     
 ### RMSE test result

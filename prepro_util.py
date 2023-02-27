@@ -95,7 +95,7 @@ def preprocess_data(dataset , round_to_which_digit , fill_type , target_column):
     except:
         pass
     
-    temp_df = encode_categorical_data(temp_df) ### categorical data encoding
+    #temp_df = encode_categorical_data(temp_df) ### categorical data encoding
     temp_df = location_data_handle(temp_df , round_to_which_digit) ### longtitude and latitude handling
     temp_df = handle_na(temp_df , fill_type) ### handle na
     temp_df = handle_datetime(temp_df) ### create year, month, day
