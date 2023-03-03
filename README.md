@@ -1,9 +1,4 @@
-### Women in Data Science (WiDS Datathon) 2023
-
-In advance of the Women in Data Science (WiDS) Stanford Conference to be held on March 8, 2023, we invite you to build a team, hone your data science skills, and join us for the 6th Annual WiDS Datathon focused on social impact. In this year’s datathon challenges participants will use data science to improve longer-range weather forecasts to help people prepare and adapt to extreme weather events caused by climate change.
-
-The WiDS Datathon encourages women worldwide to hone their data science skills, creating a supportive environment for women to connect with others in their community who share their interests. Data scientists of all levels are invited to participate in the datathon, including beginners.
-
+## Women in Data Science (WiDS Datathon) 2023
 
 ### Background on the challenge
 
@@ -13,6 +8,16 @@ Accurate long-term forecasts of temperature and precipitation are crucial to hel
 
 Overview: the dataset and challenge
 
-This year’s datathon, organized by the WiDS Worldwide team at Stanford University, Harvard University IACS, Arthur, and the WiDS Datathon Committee, will focus on longer-term weather forecasting to help communities adapt to extreme weather events caused by climate change.
+This year’s datathon will focus on longer-term weather forecasting to help communities adapt to extreme weather events caused by climate change.
 
 The dataset was created in collaboration with Climate Change AI (CCAI). Participants will submit forecasts of temperature and precipitation for one year, competing against the other teams as well as official forecasts from NOAA.
+
+
+Model training result
+
+| Model Name | final RMSE |
+| ------ | ------ |
+| CATboost | [1.136] |
+| XGBOOST | [1.61] | 
+| Linear Regression | [6.311] |
+| PCA transform | [13.757] | 
