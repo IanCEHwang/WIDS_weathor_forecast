@@ -13,11 +13,13 @@ This year’s datathon will focus on longer-term weather forecasting to help com
 The dataset was created in collaboration with Climate Change AI (CCAI). Participants will submit forecasts of temperature and precipitation for one year, competing against the other teams as well as official forecasts from NOAA.
 
 
-Model training result
+## Model training result
+
+---
 
 | Model Name | final RMSE |
 | ------ | ------ |
-| CATboost | [1.136] |
-| XGBOOST | [1.61] | 
-| Linear Regression | [6.311] |
-| PCA transform | [13.757] | 
+| CATboost | 1.136 |
+| XGBOOST | 1.61 | 
+| Linear Regression | 6.311 |
+| PCA transform | 13.757 | 
